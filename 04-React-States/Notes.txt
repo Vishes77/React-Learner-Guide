@@ -1,0 +1,82 @@
+-->To keep Track of Changing Data.
+States are the data the constantly changes.
+
+What Does State Track?
+There are two types of things state on the client/frontend keeps track of:
+UI logic - the changing state of the interface e.g., there is a modal open right now because 
+I’m editing my profile
+business logic - the changing state of data e.g., in my inbox, messages are either read or
+ unread, and this in turn affects how they display.
+
+component
+building block of React
+combines logic (JS) and presentation (JSX)
+
+prop
+data passed to a component (or found via defaults)
+immutable; component cannot change its own props
+
+state
+internal data specific to a component
+data that changes over time!
+What is React State?
+In React, state is an instance attribute on a component.
+
+Initial State
+State should be initialized as soon as the component is created.
+
+So we set it in the constructor function:
+
+class ClickCount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      numClicks: 0  // start at zero clicks
+    };
+  }
+}
+
+constructor takes one argument, props
+You must call super(props) at start of constructor, which “registers” your class as a React Component
+Inside the instance methods, you can refer to this.state just like you did this.props
+
+//Alternative syntex for Initializes state.
+// import React from 'react'
+
+// class Game extends React.Component {
+//         state = {
+//             score: 0,
+//         };
+
+
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Your score is : {this.state.score}</h1>
+//             </div>
+//         )
+//     }
+// }
+
+// export default Game;
+
+
+
+
+Changing State
+this.setState() is the built-in React method of changing a component’s state.
+
+this.setState({ playerName: "Matt", score: 0 })
+
+Can call in any instance method except the constructor
+Takes an object describing the state changes
+Patches state object — keys that you didn’t specify don’t change
+Asynchronous!
+The component state will eventually update.
+React controls when the state will actually change, for performance reasons.
+Components re-render when their state changes
+
+React Events:
+State most commonly changes in direct response to some event.
+In React, every JSX element has built-in attributes representing every kind of browser event.
+They are camel-cased, like onClick, and take callback functions as event listeners.
