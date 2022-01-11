@@ -13,7 +13,7 @@ class multipleform extends Component {
   // multiple values change here through a single function.
   handleChange(evt) {
     this.setState({
-      [evt.target.name]: evt.target.value,
+      [evt.target.name]: evt.target.value,  // to access what is in right side of equal sign.
     });
   }
 
